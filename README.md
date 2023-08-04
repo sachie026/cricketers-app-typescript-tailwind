@@ -2,6 +2,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Tech stack
+
+- React (CRA)
+- Typescript
+- Tailwind CSS
+
 ## Deployed app link
 
 [Cricketers app](https://cricketers-app-typescript-tailwind.vercel.app/)
