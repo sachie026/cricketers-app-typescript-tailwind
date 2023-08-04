@@ -10,7 +10,15 @@ import {
   handleFilterSearch,
   readAndParseQueryParams,
 } from "../../utils/utility-methods";
-import { ASC_KEY, DESC_KEY, SORT_ORDER, TYPE_ALL } from "../../data/shared";
+import {
+  ASC_KEY,
+  DESC_KEY,
+  FILTER_KEY,
+  QUERY_OPTIONS,
+  SORT_ORDER,
+  TYPE_ALL,
+  SEARCH_KEY,
+} from "../../data/shared";
 import { CRICKETERS_LIST_TITLE } from "../../data/labels";
 
 function PlayersList() {
@@ -24,27 +32,31 @@ function PlayersList() {
   const [_searchParams, setSearchParams] = useSearchParams({});
 
   const readQueryParams = useCallback(() => {
-    const splitArr = readAndParseQueryParams(search);
+    if (search && search.length) {
+      const splitArr = readAndParseQueryParams(search);
 
-    splitArr.forEach((param) => {
-      const splitParam = param.split("=");
-      if (splitParam && splitParam.length > 1) {
-        let searchQuery = splitParam[0];
-        if (searchQuery === "search") {
-          setSearchVal(splitParam[1]);
-          setSearchParams({
-            search: splitParam[1],
-            filter: filterKey,
-          });
-        } else if (searchQuery === "filter") {
-          setFilterKey(splitParam[1]);
-          setSearchParams({
-            search: searchVal,
-            filter: splitParam[1],
-          });
+      const splitObj: any = {};
+
+      splitArr.forEach((param) => {
+        const splitParam = param.split("=");
+        const queryName = splitParam && splitParam.length ? splitParam[0] : "";
+        if (QUERY_OPTIONS.includes(queryName)) {
+          splitObj[splitParam[0]] = splitParam[1];
         }
+      });
+
+      setSearchParams({
+        search: splitObj?.search,
+        filter: splitObj?.filter,
+      });
+
+      if (SEARCH_KEY in splitObj) {
+        setSearchVal(splitObj.search);
       }
-    });
+      if (FILTER_KEY in splitObj) {
+        setFilterKey(splitObj.filter);
+      }
+    }
   }, []);
 
   const fetchPlayers = () => {

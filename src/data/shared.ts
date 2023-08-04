@@ -5,6 +5,8 @@ export const AGE_key: string = "age";
 export const POINTS_KEY: string = "points";
 export const DESCRIPTION_KEY: string = "description";
 export const DOB_KEY: string = "date of birth";
+export const SEARCH_KEY: string = "search";
+export const FILTER_KEY: string = "filter";
 
 export const TYPE_BATSMAN = "batsman";
 export const TYPE_BOWLER = "bowler";
@@ -26,5 +28,7 @@ export const TABLE_HEADER_KEYS = [
   RANK_KEY,
   AGE_key,
 ];
+
+export const QUERY_OPTIONS = [SEARCH_KEY, FILTER_KEY];
 
 export const PAGE_SIZE = 10;

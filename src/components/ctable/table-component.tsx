@@ -44,11 +44,14 @@ function TableComponent({ playersToShow, sortPlayers }: Props) {
 
   return (
     <div>
-      <table className="w-full border-b">
-        <TableHeader headerKeys={TABLE_HEADER_KEYS} sortPlayers={sortPlayers} />
-        <tbody className="p-4">
-          {paginatedData?.length ? (
-            paginatedData.map((player: TPlayer, index: number) => {
+      {paginatedData?.length ? (
+        <table className="w-full border-b">
+          <TableHeader
+            headerKeys={TABLE_HEADER_KEYS}
+            sortPlayers={sortPlayers}
+          />
+          <tbody className="p-4">
+            {paginatedData.map((player: TPlayer, index: number) => {
               const { id } = player;
               return (
                 <TableRow
@@ -57,12 +60,12 @@ function TableComponent({ playersToShow, sortPlayers }: Props) {
                   headerKeys={TABLE_HEADER_KEYS}
                 />
               );
-            })
-          ) : (
-            <NoData />
-          )}
-        </tbody>
-      </table>
+            })}
+          </tbody>
+        </table>
+      ) : (
+        <NoData />
+      )}
 
       <TablePagination
         currentPage={currentPage}
