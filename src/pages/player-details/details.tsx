@@ -47,7 +47,11 @@ function PlayerDetails() {
             <DetailsRow title={DOB_KEY} value={new Date(dob).toDateString()} />
           </div>
 
-          <DetailsRow title={DESCRIPTION_KEY} value={description} />
+          <DetailsRow
+            title={DESCRIPTION_KEY}
+            value={description}
+            classes="border-t"
+          />
         </div>
       </div>
     </div>

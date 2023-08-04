@@ -10,16 +10,16 @@ function SimilarPlayerRow({ playerData }: Props) {
   const { id, name, rank, points } = playerData;
 
   return (
-    <div className="mb-6">
+    <div className="mb-6 bg-gray-100 rounded-md py-2 px-4">
       <Link
         to={DETAILS_ROUTE}
-        className="text-blue-500"
+        className="text-blue-500 text-sm"
         state={{ id: id, data: playerData }}
       >
         {name || "-"}
       </Link>
-      <div>Rank: {rank}</div>
-      <div>Points: {points}</div>
+      <div className="text-sm">Rank: {rank}</div>
+      <div className="text-sm">Points: {points}</div>
     </div>
   );
 }

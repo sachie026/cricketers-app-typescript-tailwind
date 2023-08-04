@@ -146,7 +146,10 @@ function PlayersList() {
         updateSearchVal={updateSearchVal}
       />
 
-      <TableComponent playersToShow={playersToShow} sortPlayers={sortPlayers} />
+      <TableComponent
+        playersToShow={playersToShow || []}
+        sortPlayers={sortPlayers}
+      />
     </div>
   );
 }

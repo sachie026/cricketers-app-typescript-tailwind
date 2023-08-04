@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { SIMILA_PLAYERS_LABEL } from "../../data/labels";
 import getPlayers, { TPlayer } from "../../pages/players/getPlayers";
 import SimilarPlayerRow from "./similar-player-row";
+import NoData from "../no-data";
 
 interface Props {
   playerData: TPlayer;
@@ -25,15 +26,17 @@ function SimilarPlayers({ playerData }: Props) {
 
   return (
     <div className="p-6 w-3/4 bg-white rounded-lg">
-      <div className="font-bold text-md border-b py-2 mb-4">
-        {SIMILA_PLAYERS_LABEL}
-      </div>
+      <div className="font-bold text-md py-2 mb-2">{SIMILA_PLAYERS_LABEL}</div>
       <div className="flex flex-col">
-        {similarPlayersToShow.map((player: TPlayer, index: number) => {
-          return (
-            <SimilarPlayerRow playerData={player} key={`splayer-${index}`} />
-          );
-        })}
+        {similarPlayersToShow.length ? (
+          similarPlayersToShow.map((player: TPlayer, index: number) => {
+            return (
+              <SimilarPlayerRow playerData={player} key={`splayer-${index}`} />
+            );
+          })
+        ) : (
+          <NoData />
+        )}
       </div>
     </div>
   );

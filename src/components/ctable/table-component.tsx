@@ -5,6 +5,7 @@ import { TPlayer } from "../../pages/players/getPlayers";
 import TableHeader from "../table-header";
 import TableRow from "../table-row";
 import TablePagination from "./table-pagination";
+import NoData from "../no-data";
 
 interface Props {
   playersToShow: TPlayer[];
@@ -46,16 +47,20 @@ function TableComponent({ playersToShow, sortPlayers }: Props) {
       <table className="w-full border-b">
         <TableHeader headerKeys={TABLE_HEADER_KEYS} sortPlayers={sortPlayers} />
         <tbody className="p-4">
-          {paginatedData.map((player: TPlayer, index: number) => {
-            const { id } = player;
-            return (
-              <TableRow
-                key={id}
-                rowData={player}
-                headerKeys={TABLE_HEADER_KEYS}
-              />
-            );
-          })}
+          {paginatedData?.length ? (
+            paginatedData.map((player: TPlayer, index: number) => {
+              const { id } = player;
+              return (
+                <TableRow
+                  key={id}
+                  rowData={player}
+                  headerKeys={TABLE_HEADER_KEYS}
+                />
+              );
+            })
+          ) : (
+            <NoData />
+          )}
         </tbody>
       </table>
 
