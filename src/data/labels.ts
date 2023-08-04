@@ -1,5 +1,6 @@
 export const CRICKETERS_LIST_TITLE = "All cricketers";
 export const BACK_TO_CRICKETERS_LABEL = "Back to cricketers";
+export const SIMILA_PLAYERS_LABEL = "Similar players";
 
 export const PREV_LABEL = "Previous";
 export const NEXT_LABEL = "Next";

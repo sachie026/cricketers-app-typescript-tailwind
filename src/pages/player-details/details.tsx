@@ -11,6 +11,7 @@ import {
   TYPE_KEY,
 } from "../../data/shared";
 import SimilarPlayers from "../../components/similar-players";
+import { getAge } from "../../utils/utility-methods";
 
 function PlayerDetails() {
   const location = useLocation();
@@ -42,7 +43,7 @@ function PlayerDetails() {
           </div>
 
           <div className="flex">
-            <DetailsRow title={AGE_key} value={age} />
+            <DetailsRow title={AGE_key} value={age || getAge(dob)} />
             <DetailsRow title={DOB_KEY} value={new Date(dob).toDateString()} />
           </div>
 

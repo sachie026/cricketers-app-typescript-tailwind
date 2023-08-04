@@ -9,7 +9,7 @@ function DetailsRow({ title, value }: Props) {
       <div className="text-sm text-gray-500 text-normal py-1 mb-2 uppercase">
         {title}
       </div>
-      <div className="font-bold">{value}</div>
+      <div className="font-bold">{value || "-"}</div>
     </div>
   );
 }

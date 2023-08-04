@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BACK_TO_CRICKETERS_LABEL } from "../../data/labels";
+import { SIMILA_PLAYERS_LABEL } from "../../data/labels";
 import getPlayers, { TPlayer } from "../../pages/players/getPlayers";
 import SimilarPlayerRow from "./similar-player-row";
 
@@ -26,11 +26,13 @@ function SimilarPlayers({ playerData }: Props) {
   return (
     <div className="p-6 w-3/4 bg-white rounded-lg">
       <div className="font-bold text-md border-b py-2 mb-4">
-        Similar players
+        {SIMILA_PLAYERS_LABEL}
       </div>
       <div className="flex flex-col">
         {similarPlayersToShow.map((player: TPlayer, index: number) => {
-          return <SimilarPlayerRow playerData={player} />;
+          return (
+            <SimilarPlayerRow playerData={player} key={`splayer-${index}`} />
+          );
         })}
       </div>
     </div>
