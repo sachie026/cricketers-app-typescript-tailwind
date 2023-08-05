@@ -36,7 +36,7 @@ function TopBar({ filterPlayers, updateSearchVal, value, filterKey }: Props) {
     updateSearchVal(e.target.value);
   };
   return (
-    <div className="mb-6">
+    <div className="mb-6 flex">
       <input
         type="text"
         className="border border-gray-300 rounded-md py-1 px-4 mr-6 w-1/2"
@@ -44,20 +44,21 @@ function TopBar({ filterPlayers, updateSearchVal, value, filterKey }: Props) {
         placeholder={SEARCH_PLACEHOLDER}
         onChange={searchTextChangeHandler}
       />
-      <select
-        onChange={(e) => filterPlayers(e.target.value)}
-        className="border border-gray-300 rounded-md py-1 px-4"
-        value={filterKey}
-      >
-        {typeArray.map((typeKey) => {
-          const { key, val } = typeKey;
-          return (
-            <option value={key} key={key}>
-              {val}
-            </option>
-          );
-        })}
-      </select>
+      <div className="border border-gray-300 rounded-md py-1 px-2">
+        <select
+          onChange={(e) => filterPlayers(e.target.value)}
+          value={filterKey}
+        >
+          {typeArray.map((typeKey) => {
+            const { key, val } = typeKey;
+            return (
+              <option value={key} key={key}>
+                {val}
+              </option>
+            );
+          })}
+        </select>
+      </div>
     </div>
   );
 }
