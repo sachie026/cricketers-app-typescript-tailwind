@@ -12,6 +12,7 @@ function PlayersList() {
     updateSearchVal,
     searchVal,
     filterKey,
+    clearFilters,
   } = usePlayers();
 
   return (
@@ -25,6 +26,7 @@ function PlayersList() {
         value={searchVal}
         filterKey={filterKey}
         updateSearchVal={updateSearchVal}
+        onClear={clearFilters}
       />
 
       <TableComponent

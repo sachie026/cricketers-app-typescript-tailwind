@@ -3,6 +3,7 @@ import { SIMILA_PLAYERS_LABEL } from "../../data/labels";
 import getPlayers, { TPlayer } from "../../pages/players/getPlayers";
 import SimilarPlayerRow from "./similar-player-row";
 import NoData from "../no-data";
+import { MAX_SIMILAR_PLAYERS_TO_SHOW } from "../../data/shared";
 
 interface Props {
   playerData: TPlayer;
@@ -24,12 +25,17 @@ function SimilarPlayers({ playerData }: Props) {
     (player) => player.type === playerData.type && player.id !== playerData.id
   );
 
+  const maxSimilarPlayersToShow = similarPlayersToShow.slice(
+    0,
+    MAX_SIMILAR_PLAYERS_TO_SHOW
+  );
+
   return (
     <div className="p-6 pt-0 w-3/4 bg-white rounded-lg">
       <div className="font-bold text-md  mb-4">{SIMILA_PLAYERS_LABEL}</div>
       <div className="flex flex-col">
-        {similarPlayersToShow.length ? (
-          similarPlayersToShow.map((player: TPlayer, index: number) => {
+        {maxSimilarPlayersToShow.length ? (
+          maxSimilarPlayersToShow.map((player: TPlayer, index: number) => {
             return (
               <SimilarPlayerRow playerData={player} key={`splayer-${index}`} />
             );

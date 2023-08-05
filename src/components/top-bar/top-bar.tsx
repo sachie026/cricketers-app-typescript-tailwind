@@ -29,12 +29,22 @@ interface Props {
   value: string;
   filterKey: string;
   updateSearchVal: (value: string) => void;
+  onClear: () => void;
 }
 
-function TopBar({ filterPlayers, updateSearchVal, value, filterKey }: Props) {
+function TopBar({
+  filterPlayers,
+  updateSearchVal,
+  value,
+  filterKey,
+  onClear,
+}: Props) {
   const searchTextChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     updateSearchVal(e.target.value);
   };
+
+  const showClearButton = value !== "" || filterKey !== TYPE_ALL;
+
   return (
     <div className="mb-6 flex">
       <input
@@ -59,6 +69,12 @@ function TopBar({ filterPlayers, updateSearchVal, value, filterKey }: Props) {
           })}
         </select>
       </div>
+
+      {showClearButton && (
+        <button className="ml-6 text-red-600 text-sm" onClick={onClear}>
+          Clear filters
+        </button>
+      )}
     </div>
   );
 }

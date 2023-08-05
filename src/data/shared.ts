@@ -32,3 +32,5 @@ export const TABLE_HEADER_KEYS = [
 export const QUERY_OPTIONS = [SEARCH_KEY, FILTER_KEY];
 
 export const PAGE_SIZE = 10;
+
+export const MAX_SIMILAR_PLAYERS_TO_SHOW = 5;

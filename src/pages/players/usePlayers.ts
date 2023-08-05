@@ -51,6 +51,15 @@ export function usePlayers() {
     });
   };
 
+  const clearFilters = () => {
+    setFilterKey(TYPE_ALL);
+    setSearchVal("");
+    setSearchParams({
+      search: "",
+      filter: TYPE_ALL,
+    });
+  };
+
   const filterPlayers = useCallback(
     (filterKey: string, updateStateNotRequired?: boolean) => {
       let temp = rankedPlayers.filter((player) =>
@@ -145,5 +154,6 @@ export function usePlayers() {
     readQueryParams,
     searchVal,
     filterKey,
+    clearFilters,
   };
 }
