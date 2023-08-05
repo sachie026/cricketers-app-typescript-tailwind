@@ -16,6 +16,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - Show all players list
 - Search players by name or filter them by player type
+- User can sort the players list based on the player name, age and rank
 - User can clear the filters
 - On refresh, the search and filters are persisted
 - Clicking the user name navigates to player details page
