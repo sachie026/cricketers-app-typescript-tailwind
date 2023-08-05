@@ -1,5 +1,9 @@
 import { TPlayer } from "../pages/players/getPlayers";
-import { TYPE_ALL } from "../data/shared";
+import { QUERY_OPTIONS, TYPE_ALL } from "../data/shared";
+
+export interface searchFilterObj {
+  [key: string]: string;
+}
 
 export const getAge = (timestamp?: number) => {
   if (!timestamp) return 0;
@@ -30,9 +34,19 @@ export const handleFilterSearch = (
   return false;
 };
 
-export const readAndParseQueryParams = (str: string): string[] => {
+export const readAndParseQueryParams = (str: string): searchFilterObj => {
   const trimmedSearch = str.replaceAll("?", "").trim();
   const splitArr = trimmedSearch.split("&");
 
-  return splitArr;
+  const splitObj: searchFilterObj = {};
+
+  splitArr.forEach((param) => {
+    const splitParam = param.split("=");
+    const queryName = splitParam && splitParam.length ? splitParam[0] : "";
+    if (QUERY_OPTIONS.includes(queryName)) {
+      splitObj[splitParam[0]] = splitParam[1];
+    }
+  });
+
+  return splitObj;
 };

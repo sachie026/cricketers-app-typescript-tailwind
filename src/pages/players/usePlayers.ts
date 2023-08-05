@@ -6,7 +6,6 @@ import {
   ASC_KEY,
   DESC_KEY,
   FILTER_KEY,
-  QUERY_OPTIONS,
   SEARCH_KEY,
   SORT_ORDER,
   TYPE_ALL,
@@ -15,6 +14,7 @@ import {
   getAge,
   handleFilterSearch,
   readAndParseQueryParams,
+  searchFilterObj,
 } from "../../utils/utility-methods";
 
 export function usePlayers() {
@@ -29,17 +29,7 @@ export function usePlayers() {
 
   const readQueryParams = useCallback(() => {
     if (search && search.length) {
-      const splitArr = readAndParseQueryParams(search);
-
-      const splitObj: any = {};
-
-      splitArr.forEach((param) => {
-        const splitParam = param.split("=");
-        const queryName = splitParam && splitParam.length ? splitParam[0] : "";
-        if (QUERY_OPTIONS.includes(queryName)) {
-          splitObj[splitParam[0]] = splitParam[1];
-        }
-      });
+      const splitObj: searchFilterObj = readAndParseQueryParams(search);
 
       setSearchParams({
         search: splitObj?.search,
