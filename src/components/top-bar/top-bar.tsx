@@ -12,6 +12,7 @@ import {
   ALL_ROUNDER_LABEL,
   BATSMAN_LABEL,
   BOWLER_LABEL,
+  CLEAR_FILTER_LABEL,
   SEARCH_PLACEHOLDER,
   WK_LABEL,
 } from "../../data/labels";
@@ -72,7 +73,7 @@ function TopBar({
 
       {showClearButton && (
         <button className="ml-6 text-red-600 text-sm" onClick={onClear}>
-          Clear filters
+          {CLEAR_FILTER_LABEL}
         </button>
       )}
     </div>

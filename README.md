@@ -12,6 +12,18 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 [Cricketers app](https://cricketers-app-typescript-tailwind.vercel.app/)
 
+## Features
+
+- Show all players list
+- Search players by name or filter them by player type
+- User can clear the filters
+- On refresh, the search and filters are persisted
+- Clicking the user name navigates to player details page
+- Player details page shows the similar players as well
+- User can click the player from similar players list and view his details
+- List table also has the pagination support with page size to 10 and previous/next buttons
+- User can move back to players list from the player details page
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -35,8 +47,3 @@ To run the unit tests. Added a few unit tests in app.test.tsx file for now.
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
