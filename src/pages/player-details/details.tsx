@@ -25,7 +25,7 @@ function PlayerDetails() {
   return (
     <div className="p-6 w-3/4 bg-white rounded-lg">
       <div
-        className="text-sm py-1 ml-6 mb-6 text-blue-500 cursor-pointer"
+        className="text-sm py-1 ml-6 mb-12 text-blue-500 cursor-pointer"
         onClick={() => navigate("/")}
       >
         {BACK_TO_CRICKETERS_LABEL}

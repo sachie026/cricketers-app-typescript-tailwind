@@ -18,8 +18,12 @@ function SimilarPlayerRow({ playerData }: Props) {
       >
         {name || "-"}
       </Link>
-      <div className="text-sm">Rank: {rank}</div>
-      <div className="text-sm">Points: {points}</div>
+      <div className="text-xs">
+        Rank: <b>{rank}</b>
+      </div>
+      <div className="text-xs">
+        Points: <b>{points}</b>
+      </div>
     </div>
   );
 }

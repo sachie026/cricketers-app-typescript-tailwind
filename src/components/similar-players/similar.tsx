@@ -25,8 +25,8 @@ function SimilarPlayers({ playerData }: Props) {
   );
 
   return (
-    <div className="p-6 w-3/4 bg-white rounded-lg">
-      <div className="font-bold text-md py-2 mb-2">{SIMILA_PLAYERS_LABEL}</div>
+    <div className="p-6 pt-0 w-3/4 bg-white rounded-lg">
+      <div className="font-bold text-md  mb-4">{SIMILA_PLAYERS_LABEL}</div>
       <div className="flex flex-col">
         {similarPlayersToShow.length ? (
           similarPlayersToShow.map((player: TPlayer, index: number) => {
