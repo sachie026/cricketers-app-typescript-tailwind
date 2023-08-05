@@ -17,7 +17,7 @@ function PlayersList() {
 
   return (
     <div className="p-6 w-3/4 bg-white rounded-lg">
-      <div className="text-4xl font-extrabold mb-8">
+      <div className="text-2xl font-extrabold mb-8">
         {CRICKETERS_LIST_TITLE}
       </div>
 
