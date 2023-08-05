@@ -7,14 +7,21 @@ import {
   TYPE_WK,
   TYPE_ALL_ROUNDER,
 } from "../../data/shared";
-import { SEARCH_PLACEHOLDER } from "../../data/labels";
+import {
+  ALL_LABEL,
+  ALL_ROUNDER_LABEL,
+  BATSMAN_LABEL,
+  BOWLER_LABEL,
+  SEARCH_PLACEHOLDER,
+  WK_LABEL,
+} from "../../data/labels";
 
 const typeArray = [
-  TYPE_ALL,
-  TYPE_BATSMAN,
-  TYPE_BOWLER,
-  TYPE_ALL_ROUNDER,
-  TYPE_WK,
+  { key: TYPE_ALL, val: ALL_LABEL },
+  { key: TYPE_BATSMAN, val: BATSMAN_LABEL },
+  { key: TYPE_BOWLER, val: BOWLER_LABEL },
+  { key: TYPE_ALL_ROUNDER, val: ALL_ROUNDER_LABEL },
+  { key: TYPE_WK, val: WK_LABEL },
 ];
 
 interface Props {
@@ -43,9 +50,10 @@ function TopBar({ filterPlayers, updateSearchVal, value, filterKey }: Props) {
         value={filterKey}
       >
         {typeArray.map((typeKey) => {
+          const { key, val } = typeKey;
           return (
-            <option value={typeKey} key={typeKey}>
-              {typeKey}
+            <option value={key} key={key}>
+              {val}
             </option>
           );
         })}

@@ -8,4 +8,10 @@ export const NEXT_LABEL = "Next";
 export const PAGE_LABEL = "page";
 export const OF_LABEL = "of";
 
-export const SEARCH_PLACEHOLDER = "search name...";
+export const BATSMAN_LABEL = "Batsman";
+export const BOWLER_LABEL = "Bowler";
+export const ALL_ROUNDER_LABEL = "All Rounder";
+export const WK_LABEL = "Wicket Keeper";
+export const ALL_LABEL = "All players";
+
+export const SEARCH_PLACEHOLDER = "Search name...";
