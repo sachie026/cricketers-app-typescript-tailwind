@@ -25,23 +25,24 @@ function TablePagination({
   return (
     <div className="mt-4 mr-1 flex justify-end items-center">
       <div className="mr-8 text-sm text-gray-600">
-        {`${PAGE_LABEL} ${currentPage} ${OF_LABEL} ${totalPages}`}
+        {totalPages > 0 &&
+          `${PAGE_LABEL} ${currentPage} ${OF_LABEL} ${totalPages}`}
       </div>
       <button
         className={`text-sm border py-1 px-2 ${
-          isPrevDisabled ? "text-gray-400" : "text-blue-500"
+          isPrevDisabled || totalPages === 0 ? "text-gray-400" : "text-blue-500"
         }`}
         onClick={prevClickHandler}
-        disabled={currentPage === 1}
+        disabled={isPrevDisabled || totalPages === 0}
       >
         {PREV_LABEL}
       </button>
       <button
         className={`text-sm border py-1 px-2 ${
-          isNextDisabled ? "text-gray-400" : "text-blue-500"
+          isNextDisabled || totalPages === 0 ? "text-gray-400" : "text-blue-500"
         }`}
         onClick={nextClickHandler}
-        disabled={currentPage === totalPages}
+        disabled={isNextDisabled || totalPages === 0}
       >
         {NEXT_LABEL}
       </button>

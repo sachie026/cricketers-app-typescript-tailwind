@@ -17,7 +17,7 @@ function TableRow({ rowData, headerKeys }: Props) {
   const { id } = rowData;
 
   return (
-    <tr>
+    <tr data-testid="table-row">
       {headerKeys.map((key, index) => {
         const isNameCol = key === NAME_KEY;
         return (

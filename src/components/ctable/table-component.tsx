@@ -18,7 +18,7 @@ function TableComponent({ playersToShow, sortPlayers }: Props) {
 
   const paginatedData = playersToShow.slice(
     (currentPage - 1) * PAGE_SIZE,
-    currentPage * PAGE_SIZE - 1
+    currentPage * PAGE_SIZE
   );
 
   const isPrevDisabled = useMemo(() => {
