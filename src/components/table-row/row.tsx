@@ -25,6 +25,7 @@ function TableRow({ rowData, headerKeys }: Props) {
             <Link
               to={DETAILS_ROUTE}
               state={{ id: id, data: rowData }}
+              data-testid={`${isNameCol ? "name-col" : ""}`}
               className={`${isNameCol ? "cursor-pointer text-blue-500" : ""}`}
             >
               {(rowData as Map)[key] || "-"}

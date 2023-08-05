@@ -1,5 +1,8 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { BACK_TO_CRICKETERS_LABEL } from "../../data/labels";
+import {
+  BACK_TO_CRICKETERS_LABEL,
+  DETAILS_PAGE_TITLE,
+} from "../../data/labels";
 import DetailsRow from "./details-row";
 import {
   AGE_key,
@@ -32,6 +35,9 @@ function PlayerDetails() {
           <SimilarPlayers playerData={state.data} />
         </div>
         <div className="w-2/3">
+          <div className="text-2xl font-extrabold mb-8 ml-6">
+            {DETAILS_PAGE_TITLE}
+          </div>
           <div className="flex">
             <DetailsRow title={NAME_KEY} value={name} />
             <DetailsRow title={TYPE_KEY} value={type} />
