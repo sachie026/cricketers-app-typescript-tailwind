@@ -1,4 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
+
 import {
   BACK_TO_CRICKETERS_LABEL,
   DETAILS_PAGE_TITLE,
@@ -15,6 +16,7 @@ import {
 } from "../../data/shared";
 import SimilarPlayers from "../../components/similar-players";
 import { getAge } from "../../utils/utility-methods";
+import BackIcon from "../../assets/icons/back-arrow";
 
 function PlayerDetails() {
   const location = useLocation();
@@ -22,13 +24,18 @@ function PlayerDetails() {
   const { state } = location;
   const { name, description, rank, age, points, type, dob } = state.data;
 
+  const goBack = () => {
+    navigate("/");
+  };
+
   return (
     <div className="p-6 w-3/4 bg-white rounded-lg">
       <div
-        className="text-sm py-1 ml-6 mb-12 text-blue-500 cursor-pointer"
-        onClick={() => navigate("/")}
+        className="text-sm py-1 ml-6 mb-12 text-blue-500 cursor-pointer flex items-center"
+        onClick={goBack}
       >
-        {BACK_TO_CRICKETERS_LABEL}
+        <BackIcon onClick={goBack} />
+        <label className="ml-2 text-md">{BACK_TO_CRICKETERS_LABEL}</label>
       </div>
       <div className="flex">
         <div className="w-1/3">
