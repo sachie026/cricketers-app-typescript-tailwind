@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { TPlayer } from "../../pages/players/getPlayers";
-import { DETAILS_ROUTE, NAME_KEY } from "../../data/shared";
+import { DETAILS_ROUTE, NAME_KEY, TYPE_KEY, typeObj } from "../../data/shared";
 
 interface Props {
   rowData: TPlayer;
@@ -20,6 +20,9 @@ function TableRow({ rowData, headerKeys }: Props) {
     <tr data-testid="table-row">
       {headerKeys.map((key, index) => {
         const isNameCol = key === NAME_KEY;
+        const isTypeCol = key === TYPE_KEY;
+        const columnVal = (rowData as Map)[key];
+
         return (
           <td className="p-2" key={`${index}${key}`}>
             <Link
@@ -28,7 +31,7 @@ function TableRow({ rowData, headerKeys }: Props) {
               data-testid={`${isNameCol ? "name-col" : ""}`}
               className={`${isNameCol ? "cursor-pointer text-blue-500" : ""}`}
             >
-              {(rowData as Map)[key] || "-"}
+              {isTypeCol && columnVal ? typeObj[columnVal] : columnVal || "-"}
             </Link>
           </td>
         );

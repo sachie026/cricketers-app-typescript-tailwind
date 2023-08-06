@@ -6,6 +6,7 @@ import {
   TYPE_BOWLER,
   TYPE_WK,
   TYPE_ALL_ROUNDER,
+  typeObj,
 } from "../../data/shared";
 import {
   ALL_LABEL,
@@ -16,14 +17,6 @@ import {
   SEARCH_PLACEHOLDER,
   WK_LABEL,
 } from "../../data/labels";
-
-const typeArray = [
-  { key: TYPE_ALL, val: ALL_LABEL },
-  { key: TYPE_BATSMAN, val: BATSMAN_LABEL },
-  { key: TYPE_BOWLER, val: BOWLER_LABEL },
-  { key: TYPE_ALL_ROUNDER, val: ALL_ROUNDER_LABEL },
-  { key: TYPE_WK, val: WK_LABEL },
-];
 
 interface Props {
   filterPlayers: (filterKey: string) => void;
@@ -45,6 +38,7 @@ function TopBar({
   };
 
   const showClearButton = value !== "" || filterKey !== TYPE_ALL;
+  const typeObjKeys = Object.keys(typeObj);
 
   return (
     <div className="mb-6 flex">
@@ -60,11 +54,10 @@ function TopBar({
           onChange={(e) => filterPlayers(e.target.value)}
           value={filterKey}
         >
-          {typeArray.map((typeKey) => {
-            const { key, val } = typeKey;
+          {typeObjKeys.map((typeKey) => {
             return (
-              <option value={key} key={key}>
-                {val}
+              <option value={typeKey} key={typeKey}>
+                {typeObj[typeKey]}
               </option>
             );
           })}

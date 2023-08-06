@@ -1,3 +1,11 @@
+import {
+  ALL_LABEL,
+  ALL_ROUNDER_LABEL,
+  BATSMAN_LABEL,
+  BOWLER_LABEL,
+  WK_LABEL,
+} from "./labels";
+
 export const NAME_KEY: string = "name";
 export const TYPE_KEY: string = "type";
 export const RANK_KEY: string = "rank";
@@ -28,6 +36,18 @@ export const TABLE_HEADER_KEYS = [
   RANK_KEY,
   AGE_key,
 ];
+
+interface Map {
+  [key: string]: string | undefined;
+}
+
+export const typeObj: Map = {
+  [TYPE_ALL]: ALL_LABEL,
+  [TYPE_BATSMAN]: BATSMAN_LABEL,
+  [TYPE_BOWLER]: BOWLER_LABEL,
+  [TYPE_ALL_ROUNDER]: ALL_ROUNDER_LABEL,
+  [TYPE_WK]: WK_LABEL,
+};
 
 export const QUERY_OPTIONS = [SEARCH_KEY, FILTER_KEY];
 
