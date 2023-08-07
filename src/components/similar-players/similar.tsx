@@ -31,18 +31,23 @@ function SimilarPlayers({ playerData }: Props) {
   );
 
   return (
-    <div className="p-6 pt-0 w-3/4 bg-white rounded-lg">
-      <div className="font-bold text-md  mb-4">{SIMILA_PLAYERS_LABEL}</div>
-      <div className="flex flex-col">
-        {maxSimilarPlayersToShow.length ? (
-          maxSimilarPlayersToShow.map((player: TPlayer, index: number) => {
-            return (
-              <SimilarPlayerRow playerData={player} key={`splayer-${index}`} />
-            );
-          })
-        ) : (
-          <NoData />
-        )}
+    <div className="w-1/3">
+      <div className="p-6 pt-0 w-3/4 bg-white rounded-lg">
+        <div className="font-bold text-md  mb-4">{SIMILA_PLAYERS_LABEL}</div>
+        <div className="flex flex-col">
+          {maxSimilarPlayersToShow.length ? (
+            maxSimilarPlayersToShow.map((player: TPlayer, index: number) => {
+              return (
+                <SimilarPlayerRow
+                  playerData={player}
+                  key={`splayer-${index}`}
+                />
+              );
+            })
+          ) : (
+            <NoData />
+          )}
+        </div>
       </div>
     </div>
   );

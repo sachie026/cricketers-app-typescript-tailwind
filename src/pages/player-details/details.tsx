@@ -1,28 +1,15 @@
 import { useLocation, useNavigate } from "react-router-dom";
 
-import {
-  BACK_TO_CRICKETERS_LABEL,
-  DETAILS_PAGE_TITLE,
-} from "../../data/labels";
-import DetailsRow from "./details-row";
-import {
-  AGE_key,
-  DESCRIPTION_KEY,
-  DOB_KEY,
-  NAME_KEY,
-  POINTS_KEY,
-  RANK_KEY,
-  TYPE_KEY,
-} from "../../data/shared";
+import { BACK_TO_CRICKETERS_LABEL } from "../../data/labels";
+
 import SimilarPlayers from "../../components/similar-players";
-import { getAge } from "../../utils/utility-methods";
 import BackIcon from "../../assets/icons/back-arrow";
+import DetailsContent from "./details-content";
 
 function PlayerDetails() {
   const location = useLocation();
   const navigate = useNavigate();
   const { state } = location;
-  const { name, description, rank, age, points, type, dob } = state.data;
 
   const goBack = () => {
     navigate("/");
@@ -38,34 +25,8 @@ function PlayerDetails() {
         <label className="ml-2 text-md">{BACK_TO_CRICKETERS_LABEL}</label>
       </div>
       <div className="flex">
-        <div className="w-1/3">
-          <SimilarPlayers playerData={state.data} />
-        </div>
-        <div className="w-2/3">
-          <div className="text-2xl font-extrabold mb-8 ml-6">
-            {DETAILS_PAGE_TITLE}
-          </div>
-          <div className="flex">
-            <DetailsRow title={NAME_KEY} value={name} />
-            <DetailsRow title={TYPE_KEY} value={type} />
-          </div>
-
-          <div className="flex">
-            <DetailsRow title={POINTS_KEY} value={points} />
-            <DetailsRow title={RANK_KEY} value={rank} />
-          </div>
-
-          <div className="flex">
-            <DetailsRow title={AGE_key} value={age || getAge(dob)} />
-            <DetailsRow title={DOB_KEY} value={new Date(dob).toDateString()} />
-          </div>
-
-          <DetailsRow
-            title={DESCRIPTION_KEY}
-            value={description}
-            classes="border-t"
-          />
-        </div>
+        <SimilarPlayers playerData={state.data} />
+        <DetailsContent data={state.data} />
       </div>
     </div>
   );
