@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { TPlayer } from "../../pages/players/getPlayers";
 import { DETAILS_ROUTE } from "../../data/shared";
+import { POINTS_LABEL, RANK_LABEL } from "../../data/labels";
 
 interface Props {
   playerData: TPlayer;
@@ -19,10 +20,10 @@ function SimilarPlayerRow({ playerData }: Props) {
         {name || "-"}
       </Link>
       <div className="text-xs">
-        Rank: <b>{rank}</b>
+        {RANK_LABEL} <b>{rank}</b>
       </div>
       <div className="text-xs">
-        Points: <b>{points}</b>
+        {POINTS_LABEL} <b>{points}</b>
       </div>
     </div>
   );

@@ -17,3 +17,5 @@ export const WK_LABEL = "Wicket Keeper";
 export const ALL_LABEL = "All players";
 
 export const SEARCH_PLACEHOLDER = "Search name...";
+export const RANK_LABEL = "Rank: ";
+export const POINTS_LABEL = "Points: ";
