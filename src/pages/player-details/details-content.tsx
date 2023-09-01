@@ -1,3 +1,4 @@
+import React from "react";
 import { DETAILS_PAGE_TITLE } from "../../data/labels";
 import {
   NAME_KEY,
@@ -21,7 +22,7 @@ function DetailsContent({ data }: Props) {
   const { name, description, rank, age, points, type, dob } = data;
 
   return (
-    <div className="w-2/3">
+    <div className="w-full md:w-2/3">
       <div className="text-2xl font-extrabold mb-8 ml-6">
         {DETAILS_PAGE_TITLE}
       </div>
@@ -49,10 +50,10 @@ function DetailsContent({ data }: Props) {
       <DetailsRow
         title={DESCRIPTION_KEY}
         value={description || "-"}
-        classes="border-t"
+        classes="border-t text-justify"
       />
     </div>
   );
 }
 
-export default DetailsContent;
+export default React.memo(DetailsContent);

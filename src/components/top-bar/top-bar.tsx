@@ -1,22 +1,7 @@
 import React from "react";
 
-import {
-  TYPE_ALL,
-  TYPE_BATSMAN,
-  TYPE_BOWLER,
-  TYPE_WK,
-  TYPE_ALL_ROUNDER,
-  typeObj,
-} from "../../data/shared";
-import {
-  ALL_LABEL,
-  ALL_ROUNDER_LABEL,
-  BATSMAN_LABEL,
-  BOWLER_LABEL,
-  CLEAR_FILTER_LABEL,
-  SEARCH_PLACEHOLDER,
-  WK_LABEL,
-} from "../../data/labels";
+import { TYPE_ALL, typeObj } from "../../data/shared";
+import { CLEAR_FILTER_LABEL, SEARCH_PLACEHOLDER } from "../../data/labels";
 
 interface Props {
   filterPlayers: (filterKey: string) => void;
@@ -73,4 +58,4 @@ function TopBar({
   );
 }
 
-export default TopBar;
+export default React.memo(TopBar);

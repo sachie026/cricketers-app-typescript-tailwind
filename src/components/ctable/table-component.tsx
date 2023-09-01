@@ -1,11 +1,10 @@
 import { useEffect, useState, useMemo } from "react";
 
-import { PAGE_SIZE, TABLE_HEADER_KEYS } from "../../data/shared";
+import { PAGE_SIZE } from "../../data/shared";
 import { TPlayer } from "../../pages/players/getPlayers";
-import TableHeader from "../table-header";
-import TableRow from "../table-row";
 import TablePagination from "./table-pagination";
 import NoData from "../no-data";
+import Table from "./table";
 
 interface Props {
   playersToShow: TPlayer[];
@@ -43,26 +42,9 @@ function TableComponent({ playersToShow, sortPlayers }: Props) {
   }, [playersToShow]);
 
   return (
-    <div>
+    <>
       {paginatedData?.length ? (
-        <table className="w-full border-b">
-          <TableHeader
-            headerKeys={TABLE_HEADER_KEYS}
-            sortPlayers={sortPlayers}
-          />
-          <tbody className="p-4">
-            {paginatedData.map((player: TPlayer, index: number) => {
-              const { id } = player;
-              return (
-                <TableRow
-                  key={id}
-                  rowData={player}
-                  headerKeys={TABLE_HEADER_KEYS}
-                />
-              );
-            })}
-          </tbody>
-        </table>
+        <Table paginatedData={paginatedData} sortPlayers={sortPlayers} />
       ) : (
         <NoData />
       )}
@@ -75,7 +57,7 @@ function TableComponent({ playersToShow, sortPlayers }: Props) {
         nextClickHandler={nextClickHandler}
         prevClickHandler={prevClickHandler}
       />
-    </div>
+    </>
   );
 }
 

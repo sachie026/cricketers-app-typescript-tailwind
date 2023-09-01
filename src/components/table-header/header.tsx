@@ -32,4 +32,4 @@ function TableHeader({ headerKeys, sortPlayers }: Props) {
   );
 }
 
-export default TableHeader;
+export default React.memo(TableHeader);

@@ -21,10 +21,9 @@ function PlayerDetails() {
         className="text-sm py-1 ml-6 mb-12 text-blue-500 cursor-pointer flex items-center"
         onClick={goBack}
       >
-        <BackIcon onClick={goBack} />
-        <label className="ml-2 text-md">{BACK_TO_CRICKETERS_LABEL}</label>
+        <BackIcon text={BACK_TO_CRICKETERS_LABEL} />
       </div>
-      <div className="flex">
+      <div className="flex flex-col md:flex-row">
         <SimilarPlayers playerData={state.data} />
         <DetailsContent data={state.data} />
       </div>

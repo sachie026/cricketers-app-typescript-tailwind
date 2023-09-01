@@ -97,18 +97,21 @@ export function usePlayers() {
     [filterKey, rankedPlayers, setSearchParams]
   );
 
-  const sortPlayers = (key: string) => {
-    const temp: TPlayer[] = [...playersToShow];
-    temp.sort((playerA: any, playerB: any) => {
-      if (sortBy === ASC_KEY) {
-        return playerA[key] < playerB[key] ? -1 : 1;
-      }
-      return playerA[key] > playerB[key] ? -1 : 1;
-    });
+  const sortPlayers = useCallback(
+    (key: string) => {
+      const temp: TPlayer[] = [...playersToShow];
+      temp.sort((playerA: any, playerB: any) => {
+        if (sortBy === ASC_KEY) {
+          return playerA[key] < playerB[key] ? -1 : 1;
+        }
+        return playerA[key] > playerB[key] ? -1 : 1;
+      });
 
-    setSortBy(sortBy === ASC_KEY ? DESC_KEY : ASC_KEY);
-    setPlayersToShow([...temp]);
-  };
+      setSortBy(sortBy === ASC_KEY ? DESC_KEY : ASC_KEY);
+      setPlayersToShow([...temp]);
+    },
+    [playersToShow, sortBy]
+  );
 
   const mapPlayers = useCallback(() => {
     const updatedData = players.map((player, index) => {
